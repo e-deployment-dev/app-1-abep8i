@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: app-1-system-24ayaz
+    name: app-1-system-24ayaz-deploy
+    namespace: argocd
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: app-1-system-24ayaz
+    template:
+        metadata:
+            labels:
+                app: app-1-system-24ayaz
+        spec:
+            containers:
+                - image: 
+                  imagePullPolicy: IfNotPresent
+                  name: app-1-system-24ayaz
+                  resources:
+                    limits:
+                        cpu: 1
+                        memory: 2000Mi
+                    requests:
+                        cpu: 0.1
+                        memory: 100Mi
+            imagePullSecrets:
+                - name: app-1-system-24ayaz-secret
+            restartPolicy: Always

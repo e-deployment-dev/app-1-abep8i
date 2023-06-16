@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-1-system-24ayaz-service
+  namespace: argocd
+  labels:
+    service: app-1-system-24ayaz
+spec:
+  selector:
+    app: app-1-system-24ayaz
+  type: NodePort
+  ports:
+    - name: app-1-system-24ayaz-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
